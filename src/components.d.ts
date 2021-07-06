@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface RaboCurrencyInput {
+        "currency": string;
+        "separator": string;
     }
 }
 declare global {
@@ -22,7 +24,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface RaboCurrencyInput {
+        "currency"?: string;
         "onHandleSubmit"?: (event: CustomEvent<number>) => void;
+        "separator"?: string;
     }
     interface IntrinsicElements {
         "rabo-currency-input": RaboCurrencyInput;

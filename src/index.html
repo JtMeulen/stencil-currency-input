@@ -7,16 +7,23 @@
 
     <script type="module" src="/build/rabo-input-challenge.esm.js"></script>
     <script nomodule src="/build/rabo-input-challenge.js"></script>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        margin: 60px auto;
+      }
+    </style>
   </head>
   <body>
-    <rabo-currency-input></rabo-currency-input>
+    <rabo-currency-input currency="€" separator=","></rabo-currency-input>
 
     <script>
       var inputform = document.querySelector('rabo-currency-input');
 
-      inputform.addEventListener('handleSubmit', (value, b) => {
-        console.log('value', value.detail);
-        console.log('type', typeof value.detail);
+      inputform.addEventListener('handleSubmit', (value) => {
+        alert(`value ${value.detail}`);
       })
     </script>
   </body>

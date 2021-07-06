@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, State, Watch } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'rabo-currency-input',
@@ -6,6 +6,9 @@ import { Component, Event, EventEmitter, h, State, Watch } from '@stencil/core';
   shadow: true,
 })
 export class RaboCurrencyInput {
+  @Prop() currency: string = "$";
+  @Prop() separator: string = ".";
+
   @State() integer: number = 0;
   @State() decimal: number = 0;
   @State() error: boolean = false;
@@ -14,12 +17,11 @@ export class RaboCurrencyInput {
   @Watch('decimal')
   checkValidity(): void {
     const value = this.constructValue();
-    
+
     this.error = isNaN(value) || value < 0;
   }
-  
-  @Event() handleSubmit: EventEmitter<number>;
 
+  @Event() handleSubmit: EventEmitter<number>;
 
   private constructValue(): number {
     // .toFixed(2) returns a string so we have to cast that to a number too
@@ -44,12 +46,17 @@ export class RaboCurrencyInput {
     return (
       <form onSubmit={e => this.onSubmitHandler(e)} class="container">
         <div class="input-wrapper">
-          <span>$</span>
+          <span class="currency">{this.currency}</span>
+          
           <input type="tel" onInput={e => this.handleIntegerInputChange(e)} placeholder="0" />
-          <span>,</span>
-          <input type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
+          
+          <span class="separator">{this.separator}</span>
+          
+          <input class="decimal" type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
+          
           <input type="submit" disabled={this.error || this.constructValue() <= 0} />
         </div>
+
         {this.error && <p class="error-message">Incorrect input</p>}
       </form>
     );
