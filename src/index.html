@@ -9,6 +9,15 @@
     <script nomodule src="/build/rabo-input-challenge.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <rabo-currency-input></rabo-currency-input>
+
+    <script>
+      var inputform = document.querySelector('rabo-currency-input');
+
+      inputform.addEventListener('handleSubmit', (value, b) => {
+        console.log('value', value.detail);
+        console.log('type', typeof value.detail);
+      })
+    </script>
   </body>
 </html>

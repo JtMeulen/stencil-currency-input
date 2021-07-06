@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.container {
+  padding: 12px;
+  border-radius: 4px;
+  background: lightgrey;
+  display: inline-block;
+}
+
+.input-wrapper {
+  display: flex;
+}
+
+.error-message {
+  font-size: 12px;
+  color: red;
+}
