@@ -7,7 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface RaboCurrencyInput {
+        /**
+          * Currency icon to be rendered on the left hand side of the input fields
+         */
         "currency": string;
+        /**
+          * Type of separator between the integer and decimal input fields <"." or ",">
+         */
         "separator": string;
     }
 }
@@ -24,8 +30,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface RaboCurrencyInput {
+        /**
+          * Currency icon to be rendered on the left hand side of the input fields
+         */
         "currency"?: string;
+        /**
+          * Returns a two decimal float when the form get's submitted
+         */
         "onHandleSubmit"?: (event: CustomEvent<number>) => void;
+        /**
+          * Type of separator between the integer and decimal input fields <"." or ",">
+         */
         "separator"?: string;
     }
     interface IntrinsicElements {
