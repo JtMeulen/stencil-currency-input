@@ -6,8 +6,8 @@ import { Component, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/
   shadow: true,
 })
 export class RaboCurrencyInput {
-  @Prop() currency: string = "$";
-  @Prop() separator: string = ".";
+  @Prop() currency: string = '$';
+  @Prop() separator: string = '.';
 
   @State() integer: number = 0;
   @State() decimal: number = 0;
@@ -30,6 +30,10 @@ export class RaboCurrencyInput {
 
   onSubmitHandler(e) {
     e.preventDefault();
+    
+    if (this.error) {
+      return
+    };
 
     this.handleSubmit.emit(this.constructValue());
   }
@@ -47,13 +51,13 @@ export class RaboCurrencyInput {
       <form onSubmit={e => this.onSubmitHandler(e)} class="container">
         <div class="input-wrapper">
           <span class="currency">{this.currency}</span>
-          
+
           <input type="tel" onInput={e => this.handleIntegerInputChange(e)} placeholder="0" />
-          
+
           <span class="separator">{this.separator}</span>
-          
+
           <input class="decimal" type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
-          
+
           <input type="submit" disabled={this.error || this.constructValue() <= 0} />
         </div>
 
