@@ -9,6 +9,7 @@ Submitting the form will return an array of objects with the user input.
 
 
 ### Run the project locally
+To see the results of submitting the form, please check the console in the developer tools!
 ```
 npm install
 npm run start
