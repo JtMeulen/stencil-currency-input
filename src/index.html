@@ -19,16 +19,17 @@
     </style>
   </head>
   <body>
-    <rabo-currency-input currency="€" separator=","></rabo-currency-input>
-
-    <p>Returned value: <span id="returnedValue"></span></p>
+    <rabo-form>
+      <rabo-currency-input currency="€" separator="," name="euro"></rabo-currency-input>
+      <rabo-currency-input currency="$" separator="." name="dollar"></rabo-currency-input>
+      <rabo-currency-input currency="¢" separator=";" name="yen"></rabo-currency-input>
+    </rabo-form>
 
     <script>
-      var inputform = document.querySelector('rabo-currency-input');
-      var valueEl = document.querySelector("#returnedValue");
+      var inputform = document.querySelector('rabo-form');
 
       inputform.addEventListener('handleSubmit', (value) => {
-        valueEl.textContent = parseFloat(value.detail).toFixed(2);
+        console.log(value.detail)
       })
     </script>
   </body>

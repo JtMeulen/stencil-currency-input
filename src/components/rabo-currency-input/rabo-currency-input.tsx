@@ -17,40 +17,45 @@ export class RaboCurrencyInput {
    */
   @Prop() separator: string = '.';
 
+  /**
+   * Required name field of the prop.
+   * Used to update the correct state in form element
+   */
+  @Prop() name: string;
+
   @State() _integer: number = 0;
   @State() _decimal: number = 0;
   @State() _error: boolean = false;
 
   /**
    * Whenever the input fields get changed, check the validity of the total input.
-   * Render an error message if the checks are not passed
+   * Render an error border around the input if the checks are not passed
    */
   @Watch('_integer')
   @Watch('_decimal')
   checkValidity(): void {
     const value = this.constructValue();
 
-    this._error = isNaN(value) || value < 0;
+    if(isNaN(+value) || +value < 0) {
+      this._error = true;
+    } else {
+      this._error = false;
+
+      this.handleOnChange.emit({
+        name: this.name,
+        value
+      });
+    }
   }
 
   /**
-   * Returns a two decimal float when the form get's submitted
+   * Returns the name and 
    */
-  @Event() handleSubmit: EventEmitter<number>;
+  @Event() handleOnChange: EventEmitter<object>;
 
-  private constructValue(): number {
+  private constructValue(): string {
     // .toFixed(2) returns a string so we have to cast that to a number too
-    return +(+`${this._integer}.${this._decimal}`).toFixed(2);
-  }
-
-  private onSubmitHandler(e) {
-    e.preventDefault();
-    
-    if (this._error) {
-      return
-    };
-
-    this.handleSubmit.emit(this.constructValue());
+    return parseFloat(`${this._integer}.${this._decimal}`).toFixed(2);
   }
 
   private handleIntegerInputChange(e) {
@@ -58,26 +63,21 @@ export class RaboCurrencyInput {
   }
 
   private handleDecimalInputChange(e) {
+    // TODO check for invalid inputs
     this._decimal = +e.target.value;
   }
 
   render() {
     return (
-      <form onSubmit={e => this.onSubmitHandler(e)} class="container">
-        <div class="input-wrapper">
-          <span class="currency">{this.currency}</span>
+      <div class="input-wrapper">
+        <span class="currency">{this.currency}</span>
 
-          <input type="tel" onInput={e => this.handleIntegerInputChange(e)} maxLength={16} placeholder="0" />
+        <input class={'integer ' + (this._error && 'error')} type="tel" onInput={e => this.handleIntegerInputChange(e)} maxLength={16} placeholder="0" />
 
-          <span class="separator">{this.separator}</span>
+        <span class="separator">{this.separator}</span>
 
-          <input class="decimal" type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
-
-          <input type="submit" disabled={this._error || this.constructValue() <= 0} />
-        </div>
-
-        {this._error && <p class="error-message">Incorrect input</p>}
-      </form>
+        <input class={'decimal ' + (this._error && 'error')} type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
+      </div>
     );
   }
 }
