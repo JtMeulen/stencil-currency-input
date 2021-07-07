@@ -35,7 +35,7 @@ export class RaboCurrencyInput {
   @Watch('_decimal')
   checkValidity(): void {
     const value = this.constructValue();
-    const hasError = isNaN(+value) || +value < 0;
+    const hasError = isNaN(this._integer) || isNaN(this._decimal) || +value < 0;
 
     this._error = hasError;
 
@@ -60,7 +60,6 @@ export class RaboCurrencyInput {
   }
 
   private handleDecimalInputChange(e) {
-    // TODO check for invalid inputs
     this._decimal = +e.target.value;
   }
 
