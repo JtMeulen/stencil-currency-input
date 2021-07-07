@@ -49,12 +49,11 @@ export class RaboCurrencyInput {
   }
 
   /**
-   * Returns the name and 
+   * Returns the name and value object to the Listener
    */
   @Event() handleOnChange: EventEmitter<object>;
 
   private constructValue(): string {
-    // .toFixed(2) returns a string so we have to cast that to a number too
     return parseFloat(`${this._integer}.${this._decimal}`).toFixed(2);
   }
 

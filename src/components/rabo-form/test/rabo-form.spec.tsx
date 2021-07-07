@@ -10,7 +10,10 @@ describe('rabo-form', () => {
     expect(page.root).toEqualHtml(`
       <rabo-form>
         <mock:shadow-root>
-          <slot></slot>
+          <form class="container">
+            <slot></slot>
+            <input type="submit">
+          </form>
         </mock:shadow-root>
       </rabo-form>
     `);

@@ -52,7 +52,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Returns the name and
+          * Returns the name and value object to the Listener
          */
         "onHandleOnChange"?: (event: CustomEvent<object>) => void;
         /**
@@ -62,7 +62,7 @@ declare namespace LocalJSX {
     }
     interface RaboForm {
         /**
-          * Returns a two decimal float when the form get's submitted
+          * Returns an array of objects containing the input fields that users have changed
          */
         "onHandleSubmit"?: (event: CustomEvent<any>) => void;
     }

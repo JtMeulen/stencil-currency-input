@@ -1,8 +1,12 @@
 # Rabobank Stencil Challenge
 
 ## Introduction
-A simple currency input form with two separate input fields which returns a two decimal number on submit.
-Find more details on how to use the component [here](src/components/rabo-currency-input/readme.md)
+This repo contains two separate components build with StencilJS.
+There is one '<rabo-form></rabo-form>' component, which expects one or more '<rabo-currency-input></rabo-currency-input>' elements. 
+Submitting the form will return an array of objects with the user input.
+- [Rabo Input element](src/components/rabo-currency-input/readme.md)
+- [Rabo Form element](src/components/rabo-form/readme.md)
+
 
 ### Run the project locally
 ```
@@ -19,3 +23,4 @@ npm run test
 ## Improvements / Future work
 * Use locale string as prop to generate correct currency and separator
 * Improve styling and make responsive
+* Allow for disabled input fields by passing prop

@@ -13,7 +13,7 @@ export class RaboForm {
   @State() _inputValues: { name: string; value: string }[] = [];
 
   /**
-   * Returns a two decimal float when the form get's submitted
+   * Returns an array of objects containing the input fields that users have changed
    */
   @Event() handleSubmit: EventEmitter;
 
