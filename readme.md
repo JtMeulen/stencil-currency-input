@@ -18,5 +18,4 @@ npm run test
 
 ## Improvements / Future work
 * Use locale string as prop to generate correct currency and separator
-* Debug why EventEmitter sends string instead of number
 * Improve styling and make responsive

@@ -22,13 +22,13 @@
     <rabo-currency-input currency="€" separator=","></rabo-currency-input>
 
     <p>Returned value: <span id="returnedValue"></span></p>
+
     <script>
       var inputform = document.querySelector('rabo-currency-input');
       var valueEl = document.querySelector("#returnedValue");
 
       inputform.addEventListener('handleSubmit', (value) => {
-        valueEl.textContent = value.detail;
-        // alert(`value ${value.detail}`);
+        valueEl.textContent = parseFloat(value.detail).toFixed(2);
       })
     </script>
   </body>

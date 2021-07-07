@@ -17,6 +17,9 @@ emitted which returns the combined input of the two fields.
 </script>
 ```
 
+<!-- Auto Generated Below -->
+
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                 | Type     | Default |
