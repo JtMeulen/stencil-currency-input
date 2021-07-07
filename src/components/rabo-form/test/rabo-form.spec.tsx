@@ -12,7 +12,7 @@ describe('rabo-form', () => {
         <mock:shadow-root>
           <form class="container">
             <slot></slot>
-            <input type="submit">
+            <input disabled="" type="submit">
           </form>
         </mock:shadow-root>
       </rabo-form>

@@ -35,17 +35,15 @@ export class RaboCurrencyInput {
   @Watch('_decimal')
   checkValidity(): void {
     const value = this.constructValue();
+    const hasError = isNaN(+value) || +value < 0;
 
-    if(isNaN(+value) || +value < 0) {
-      this._error = true;
-    } else {
-      this._error = false;
+    this._error = hasError;
 
-      this.handleOnChange.emit({
-        name: this.name,
-        value
-      });
-    }
+    this.handleOnChange.emit({
+      name: this.name,
+      value,
+      hasError,
+    });
   }
 
   /**
@@ -71,11 +69,25 @@ export class RaboCurrencyInput {
       <div class="input-wrapper">
         <span class="currency">{this.currency}</span>
 
-        <input class={'integer ' + (this._error && 'error')} type="tel" onInput={e => this.handleIntegerInputChange(e)} maxLength={16} placeholder="0" />
+        <input 
+          class={'integer ' + (this._error && 'error')} 
+          type="text" 
+          inputmode="decimal" 
+          onInput={e => this.handleIntegerInputChange(e)} 
+          maxLength={16} 
+          placeholder="0" 
+        />
 
         <span class="separator">{this.separator}</span>
 
-        <input class={'decimal ' + (this._error && 'error')} type="tel" onInput={e => this.handleDecimalInputChange(e)} maxLength={2} placeholder="00" />
+        <input 
+          class={'decimal ' + (this._error && 'error')} 
+          type="text" 
+          inputmode="decimal" 
+          onInput={e => this.handleDecimalInputChange(e)} 
+          maxLength={2} 
+          placeholder="00" 
+        />
       </div>
     );
   }

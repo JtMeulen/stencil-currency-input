@@ -14,11 +14,11 @@ describe('rabo-currency-input', () => {
             <span class="currency">
               $
             </span>
-            <input class="false integer" maxlength="16" placeholder="0" type="tel">
+            <input class="false integer" maxlength="16" placeholder="0" type="text" inputmode="decimal">
             <span class="separator">
               .
             </span>
-            <input class="decimal false" maxlength="2" placeholder="00" type="tel">
+            <input class="decimal false" maxlength="2" placeholder="00" type="text" inputmode="decimal">
           </div>
         </mock:shadow-root>
       </rabo-currency-input>
@@ -37,11 +37,11 @@ describe('rabo-currency-input', () => {
             <span class="currency">
               $
             </span>
-            <input class="false integer" maxlength="16" placeholder="0" type="tel">
+            <input class="false integer" maxlength="16" placeholder="0" type="text" inputmode="decimal">
             <span class="separator">
               .
             </span>
-            <input class="decimal false" maxlength="2" placeholder="00" type="tel">
+            <input class="decimal false" maxlength="2" placeholder="00" type="text" inputmode="decimal">
           </div>
         </mock:shadow-root>
       </rabo-currency-input>
@@ -60,11 +60,11 @@ describe('rabo-currency-input', () => {
             <span class="currency">
               ¢
             </span>
-            <input class="false integer" maxlength="16" placeholder="0" type="tel">
+            <input class="false integer" maxlength="16" placeholder="0" type="text" inputmode="decimal">
             <span class="separator">
               .
             </span>
-            <input class="decimal false" maxlength="2" placeholder="00" type="tel">
+            <input class="decimal false" maxlength="2" placeholder="00" type="text" inputmode="decimal">
           </div>
         </mock:shadow-root>
       </rabo-currency-input>
@@ -83,11 +83,11 @@ describe('rabo-currency-input', () => {
             <span class="currency">
               €
             </span>
-            <input class="false integer" maxlength="16" placeholder="0" type="tel">
+            <input class="false integer" maxlength="16" placeholder="0" type="text" inputmode="decimal">
             <span class="separator">
               ,
             </span>
-            <input class="decimal false" maxlength="2" placeholder="00" type="tel">
+            <input class="decimal false" maxlength="2" placeholder="00" type="text" inputmode="decimal">
           </div>
         </mock:shadow-root>
       </rabo-currency-input>

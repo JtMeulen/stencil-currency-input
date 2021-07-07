@@ -43,7 +43,8 @@ describe('rabo-currency-input', () => {
     
     expect(onChange).toHaveReceivedEventDetail({
       name: "euro",
-      value: "0.88"
+      value: "0.88",
+      hasError: false,
     });
   });
 });
