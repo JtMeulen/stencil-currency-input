@@ -11,6 +11,8 @@
     <style>
       body {
         display: flex;
+        flex-flow: column;
+        align-items: center;
         justify-content: center;
         margin: 60px auto;
       }
@@ -19,11 +21,14 @@
   <body>
     <rabo-currency-input currency="€" separator=","></rabo-currency-input>
 
+    <p>Returned value: <span id="returnedValue"></span></p>
     <script>
       var inputform = document.querySelector('rabo-currency-input');
+      var valueEl = document.querySelector("#returnedValue");
 
       inputform.addEventListener('handleSubmit', (value) => {
-        alert(`value ${value.detail}`);
+        valueEl.textContent = value.detail;
+        // alert(`value ${value.detail}`);
       })
     </script>
   </body>

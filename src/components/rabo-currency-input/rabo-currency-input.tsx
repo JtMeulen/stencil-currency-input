@@ -67,7 +67,7 @@ export class RaboCurrencyInput {
         <div class="input-wrapper">
           <span class="currency">{this.currency}</span>
 
-          <input type="tel" onInput={e => this.handleIntegerInputChange(e)} placeholder="0" />
+          <input type="tel" onInput={e => this.handleIntegerInputChange(e)} maxLength={16} placeholder="0" />
 
           <span class="separator">{this.separator}</span>
 

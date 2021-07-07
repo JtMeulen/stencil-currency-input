@@ -15,7 +15,7 @@ describe('rabo-currency-input', () => {
               <span class="currency">
                 $
               </span>
-              <input placeholder="0" type="tel">
+              <input maxlength="16" placeholder="0" type="tel">
               <span class="separator">
                 .
               </span>
@@ -41,7 +41,7 @@ describe('rabo-currency-input', () => {
               <span class="currency">
                 $
               </span>
-              <input placeholder="0" type="tel">
+              <input maxlength="16" placeholder="0" type="tel">
               <span class="separator">
                 .
               </span>
@@ -67,7 +67,7 @@ describe('rabo-currency-input', () => {
               <span class="currency">
                 ¢
               </span>
-              <input placeholder="0" type="tel">
+              <input maxlength="16" placeholder="0" type="tel">
               <span class="separator">
                 .
               </span>
@@ -93,7 +93,7 @@ describe('rabo-currency-input', () => {
               <span class="currency">
                 €
               </span>
-              <input placeholder="0" type="tel">
+              <input maxlength="16" placeholder="0" type="tel">
               <span class="separator">
                 ,
               </span>

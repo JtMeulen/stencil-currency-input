@@ -2,6 +2,7 @@
 
 ## Introduction
 A simple currency input form with two separate input fields which returns a two decimal number on submit.
+Find more details on how to use the component [here](src/components/rabo-currency-input/readme.md)
 
 ### Run the project locally
 ```
@@ -17,3 +18,5 @@ npm run test
 
 ## Improvements / Future work
 * Use locale string as prop to generate correct currency and separator
+* Debug why EventEmitter sends string instead of number
+* Improve styling and make responsive
